@@ -1,4 +1,3 @@
-*/appsettings.json
 bin/
 obj/
 .vscode
@@ -7,4 +6,3 @@ vscode
 */obj/
 */*/bin/
 */*/obj/
-appsetting.json
