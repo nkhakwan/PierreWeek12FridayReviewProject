@@ -12,21 +12,20 @@ using System.Security.Claims;
 
 namespace Sweet.Controllers
 {
-  //[Authorize]
+  
   public class TreatsController : Controller
   {
     private readonly SweetContext _db;
-    private readonly UserManager<ApplicationUser> _userManager; //new line
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    //updated constructor
+    
     public TreatsController(UserManager<ApplicationUser> userManager, SweetContext db)
     {
       _userManager = userManager;
       _db = db;
     }
 
-    //updated Index method
-    //public async Task<ActionResult> Index()
+    
     public  ActionResult Index()
     {
       
@@ -89,6 +88,9 @@ namespace Sweet.Controllers
       return RedirectToAction("Index");
     }
 
+
+
+    [Authorize]
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
@@ -96,6 +98,8 @@ namespace Sweet.Controllers
       return View(thisTreat);
     }
 
+
+    [Authorize]
     [HttpPost]
     public ActionResult AddFlavor(Treat treat, int FlavorId)
     {
