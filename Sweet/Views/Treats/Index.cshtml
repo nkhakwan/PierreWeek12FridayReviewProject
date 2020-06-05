@@ -6,7 +6,8 @@
 @using System.Security.Claims
 @model IEnumerable<Sweet.Models.Treat>
 
-<h1>Treats for @User.Identity.Name</h1>
+@* <h1>Treats for @User.Identity.Name</h1> *@
+<h1>Available Treats</h1>
 
 @if (Model.Any())
 {
@@ -19,7 +20,7 @@
 } 
 else
 {
-  <h3>No treats yet!. Nothing added so far</h3>
+  <h3>No treats yet!. Nothing added so far. Come after lock down or select to Add</h3>
 }
 
 <p>@Html.ActionLink("Add new treat", "Create")</p>
