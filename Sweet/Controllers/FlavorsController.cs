@@ -3,20 +3,22 @@ using Sweet.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Sweet.Controllers
 {
-  public class CategoriesController : Controller
+  public class FlavorsController : Controller
   {
     private readonly SweetContext _db;
 
-    public CategoriesController(SweetContext db)
+    public FlavorsController(SweetContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
+      Console.WriteLine("We are inside Flavor Index");
       List<Flavor> model = _db.Flavors.ToList();
       return View(model);
     }

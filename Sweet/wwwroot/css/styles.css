@@ -1,13 +1,6 @@
 body {
-  margin: 0 auto;
-  max-width: 1200px;
-
+ background-image: url("../Images/sweet.jpg");
+ background-size: 100%;
+ background-repeat: no-repeat;
+ margin: 20%;
 }
-
-
-#body {
- #background-image: url("../Images/background.jpg");
- #background-size: 100%;
- #background-repeat: no-repeat;
- #margin: 20%;
-#}

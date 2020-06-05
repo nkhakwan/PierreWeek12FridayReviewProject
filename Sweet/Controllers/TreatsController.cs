@@ -30,10 +30,11 @@ namespace Sweet.Controllers
     //updated Index method
     public async Task<ActionResult> Index()
     {
+      Console.WriteLine("We are inside the Index");
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      Console.WriteLine($" and here is currentUser.Id{currentUser.Id} plus {userTreats[0].TreatId}");
+      //Console.WriteLine($" and here is currentUser.Id{currentUser.Id} plus {userTreats[0].TreatId}");
 
       return View(userTreats);
     }
