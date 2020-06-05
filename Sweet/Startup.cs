@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoList.Models;
 
-namespace ToDoList
+namespace Sweet
 {
   public class Startup
   {
@@ -26,11 +26,11 @@ namespace ToDoList
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<ToDoListContext>(options => options
+        .AddDbContext<SweetContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ToDoListContext>()
+        .AddEntityFrameworkStores<SweetContext>()
         .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
