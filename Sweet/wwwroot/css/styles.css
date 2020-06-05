@@ -1,6 +1,8 @@
 body {
- background-image: url("../Images/sweet.jpg");
- background-size: 100%;
- background-repeat: no-repeat;
- margin: 20%;
+  background: url(../img/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
