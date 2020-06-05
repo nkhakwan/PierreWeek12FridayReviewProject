@@ -42,7 +42,7 @@ namespace Sweet.Controllers
       return View();
     }
 
-    
+
     [Authorize]
     [HttpPost]
     public ActionResult Create(Flavor flavor)
@@ -61,11 +61,14 @@ namespace Sweet.Controllers
       return View(thisFlavor);
     }
 
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
+
+    [Authorize]
 
     [HttpPost]
     public ActionResult Edit(Flavor flavor)
@@ -75,12 +78,15 @@ namespace Sweet.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
 
+
+    [Authorize]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
