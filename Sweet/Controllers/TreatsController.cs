@@ -5,8 +5,6 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
-
-//new using directives
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
@@ -14,7 +12,7 @@ using System.Security.Claims;
 
 namespace Sweet.Controllers
 {
-  [Authorize] //new line
+  //[Authorize]
   public class TreatsController : Controller
   {
     private readonly SweetContext _db;
@@ -28,24 +26,23 @@ namespace Sweet.Controllers
     }
 
     //updated Index method
-    public async Task<ActionResult> Index()
+    //public async Task<ActionResult> Index()
+    public  ActionResult Index()
     {
-      Console.WriteLine("We are inside the Index");
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      //Console.WriteLine($" and here is currentUser.Id{currentUser.Id} plus {userTreats[0].TreatId}");
-
+      
+      var userTreats = _db.Treats.ToList();
       return View(userTreats);
-    }
 
+      
+    }
+    [Authorize]
     public ActionResult Create()
     {
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
       return View();
     }
 
-    //updated Create post method
+    [Authorize]
     [HttpPost]
     public async Task<ActionResult> Create(Treat treat, int FlavorId)
     {
@@ -70,6 +67,7 @@ namespace Sweet.Controllers
       return View(thisTreat);
     }
 
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
@@ -77,6 +75,8 @@ namespace Sweet.Controllers
       return View(thisTreat);
     }
 
+
+    [Authorize]
     [HttpPost]
     public ActionResult Edit(Treat treat, int FlavorId)
     {
@@ -107,12 +107,13 @@ namespace Sweet.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
       return View(thisTreat);
     }
-
+    [Authorize]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
@@ -122,6 +123,8 @@ namespace Sweet.Controllers
       return RedirectToAction("Index");
     }
 
+
+    [Authorize]
     [HttpPost]
     public ActionResult DeleteFlavor(int joinId)
     {
