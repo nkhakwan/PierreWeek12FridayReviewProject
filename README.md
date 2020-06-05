@@ -18,7 +18,7 @@ _A website that allows visitors to see all the treats that are available in a sw
 6. Run "dotnet ef database update"
 Or Please see the detailed tables dump at the end of this README file for all the tables and database.
 
-# Database is named Sweet as first_last of names were already occupied in workbench and i didn't feel like deleting it.
+## Database is named Sweet. Firstname_lastname not avaialbe in mysql WB
 
 7. Against the norms appsettings.json is available for teachers viewing. Didn't include it in .gitignore.
 
