@@ -1,9 +1,21 @@
+// using Microsoft.AspNetCore.Mvc;
+// using Sweet.Models;
+// using System.Collections.Generic;
+// using System.Linq;
+// using Microsoft.EntityFrameworkCore;
+// using System;
+
 using Microsoft.AspNetCore.Mvc;
 using Sweet.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace Sweet.Controllers
 {
@@ -23,11 +35,15 @@ namespace Sweet.Controllers
       return View(model);
     }
 
+
+    [Authorize]
     public ActionResult Create()
     {
       return View();
     }
 
+    
+    [Authorize]
     [HttpPost]
     public ActionResult Create(Flavor flavor)
     {
