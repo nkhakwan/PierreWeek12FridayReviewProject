@@ -62,7 +62,9 @@ _Have a bug or an issue with this application? Email post_khan@yahoo.com_
 
 
 CREATE DATABASE `sweet` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
 USE `sweet`;
+
 CREATE TABLE `__efmigrationshistory` (
   `MigrationId` varchar(95) NOT NULL,
   `ProductVersion` varchar(32) NOT NULL,
