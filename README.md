@@ -12,10 +12,9 @@ _A website that allows visitors to see all the treats that are available in a sw
 
 1. Clone this repository from GitHub.
 2. Open the downloaded directory in a text editor of your choice.
-3. To install the REPL dotnet script, run dotnet tool install -g dotnet-script in your terminal.
-4. Run the program with the commands dotnet restore, dotnet build, and dotnet run.
-5. Run "dotnet ef migrations add <yourtag>
-6. Run "dotnet ef database update"
+3. Run the program with the commands dotnet restore, dotnet build, and dotnet run.
+4. Run "dotnet ef migrations add <yourtag>
+5. Run "dotnet ef database update"
 Or Please see the detailed tables dump at the end of this README file for all the tables and database.
 
 ## Database is named Sweet. Firstname_lastname not avaialbe in mysql WB
@@ -63,7 +62,7 @@ _Have a bug or an issue with this application? Email post_khan@yahoo.com_
 
 
 CREATE DATABASE `sweet` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-
+USE `sweet`;
 CREATE TABLE `__efmigrationshistory` (
   `MigrationId` varchar(95) NOT NULL,
   `ProductVersion` varchar(32) NOT NULL,
